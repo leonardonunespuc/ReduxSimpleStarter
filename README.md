@@ -2,6 +2,7 @@
 
 Component to fulfill the task of registering, undoing and redoing changes to some text document.
 
+
 ## Getting Started
 
 The component has an **UndoManagerImpl** class that makes use of a Buffer and two Stacks, one for Undo and the other for the Redo change operations.
@@ -30,7 +31,10 @@ The following command can be used to run the tests using Maven.
 After running the tests a Code Coverage report is generated using JaCoCo library.
 
 Report path:
+
+```
 undo-manager\target\site\jacoco\index.html
+```
 
 
 ## Built With
