@@ -5,15 +5,19 @@ Component to fulfill the task of registering, undoing and redoing changes to som
 
 ## Getting Started
 
-The component has an **UndoManagerImpl** class that makes use of a Buffer and two Stacks, one for Undo and the other for the Redo change operations.
+The component have an **UndoManagerImpl** class that makes use of a Buffer and two Stacks, one for Undo and the other for the Redo change operations.
 The two Stacks combined will never grow larger then the Buffer size.
 The first element of the Undo Stack is removed whenever the Buffer size is reached.
+
+The Undo operation removes one change from the Undo Stack, revert the change on the document and then add the change to the Redo Stack.
+The Redo operation does the inverse, it removes one change from the Redo Stack, apply the change on the document and then add the change to the Undo Stack.
 
 When a new change is registered all Redos will not be available anymore. 
 The Redo Stack will have all the elements removed.
 
-The Undo operation removes one change from the Undo Stack, revert the change on the document and then add the change to the Redo Stack.
-The Redo operation does the inverse, it removes one change from the Redo Stack, apply the change on the document and then add the change to the Undo Stack.
+To make sure code is working and the component does what it is supposed to do, unit tests and code coverage is used to guarantee that the unit tests are covering all lines of code.
+
+Mockito library is used to mock objects of the interfaces that were not implemented.
 
 ### Prerequisites
 
@@ -34,6 +38,20 @@ Report path:
 
 ```
 undo-manager\target\site\jacoco\index.html
+```
+
+## Building a jar file
+
+The following command can be used to compile and build a jar file for the component.
+
+```
+> mvn clean install
+```
+
+The resulting jar file will be available in the following directory:
+
+```
+undo-manager\target\
 ```
 
 
